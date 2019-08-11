@@ -1,0 +1,10 @@
+buildscript {
+}
+
+version = '0.0.1-SNAPSHOT'
+
+dependencies {
+	compile project(':tips-core')
+	compile('org.springframework.boot:spring-boot-starter-web')
+}
+

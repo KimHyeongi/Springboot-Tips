@@ -1,0 +1,88 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.7.RELEASE'
+        hikaricpVersion = '3.3.0'
+        flywayVersion = '5.2.4'
+        querydslVersion = '4.2.1'
+		poiVersion = '4.1.0'
+		lettuceCoreVersion = '5.1.8.RELEASE'
+        generatedSourcesDir = file("src/querydsl/java")
+		querydslPluginVersion = '1.0.10'
+		querydslSrcDir = 'src/main/generated'
+	}
+
+	repositories {
+		mavenCentral()
+		maven { url "https://plugins.gradle.org/m2/" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:${querydslPluginVersion}")
+    	classpath 'com.google.appengine:gradle-appengine-plugin:1.9.59'
+  	}
+}
+
+plugins {
+  	id "org.flywaydb.flyway" version "5.2.4"
+  	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+
+}
+
+bootJar {
+	enabled = false
+    baseName = 'tips-core'
+    version = '0.0.1-SNAPSHOT'
+}
+
+jar {
+    enabled = true
+}
+
+sourceSets.main.java.srcDirs += generatedSourcesDir
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile('org.springframework.boot:spring-boot-starter-data-redis')
+	
+	
+	compile('org.hibernate:hibernate-ehcache')
+	compile('org.hibernate:hibernate-envers')
+	
+	compile("io.lettuce:lettuce-core:${lettuceCoreVersion}")
+	
+	compile('org.apache.commons:commons-pool2:2.6.0')
+	compile("org.apache.poi:poi-ooxml:${poiVersion}")
+	compile("org.apache.poi:poi:${poiVersion}")
+	
+	compile("org.flywaydb:flyway-core:${flywayVersion}")
+	compile("com.zaxxer:HikariCP:${hikaricpVersion}")
+	
+	compile("com.querydsl:querydsl-apt:${querydslVersion}")
+	compile("com.querydsl:querydsl-jpa:${querydslVersion}")
+	
+    runtime("mysql:mysql-connector-java")
+
+}
+
+querydsl {
+	library = "com.querydsl:querydsl-apt"
+	jpa = true
+	querydslSourcesDir = querydslSrcDir
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/main/java', querydslSrcDir]
+		}
+	}
+}
+
+eclipse.classpath.file {
+	whenMerged { classpath ->
+	def cpath = classpath.entries.findAll {
+			entry -> entry.kind == 'src' && entry.path == 'src/main/generated' && entry.output == 'bin/querydsl'
+	}
+	classpath.entries.removeAll (cpath)
+	}
+}

@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  mysql:
+    image: mysql:5.7
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+    - mysql_data:/var/lib/mysql
+    networks:
+    - esnet
+    mem_limit: 1g
+
+  redis:
+    image: redis:4.0
+    ports:
+      - "6379:6379"
+    mem_limit: 256m
+    networks:
+      - esnet
+
+volumes:
+  mysql_data:
+    driver: local
+networks:
+  esnet:

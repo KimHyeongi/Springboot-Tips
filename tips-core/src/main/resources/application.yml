@@ -50,8 +50,25 @@ spring:
         idle-timeout: 40000
         type: com.zaxxer.hikari.HikariDataSource
         auto-commit: false
-#logging:
-#  config: classpath:logback_default.xml
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 7
+        max-idle: 7
+        min-idle: 5
+        max-wait: -1
+      shutdown-timeout: 200
+    timeout: 5000
+  cache: 
+    ehcache: 
+      config: classpath:ehcache.xml        
+    
+logging:
+  config: classpath:logback_default.xml
+
+
 
 
 

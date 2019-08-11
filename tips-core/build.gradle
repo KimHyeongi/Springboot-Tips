@@ -60,6 +60,9 @@ dependencies {
 	compile("com.querydsl:querydsl-apt:${querydslVersion}")
 	compile("com.querydsl:querydsl-jpa:${querydslVersion}")
 	
+	compile("org.apache.commons:commons-lang3:3.9")
+	
+	
     runtime("mysql:mysql-connector-java")
 
 }

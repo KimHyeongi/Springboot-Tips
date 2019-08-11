@@ -1,5 +1,6 @@
 package com.tistory.eclipse4j.jpa.db1.dto;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -8,14 +9,21 @@ import java.util.stream.Collectors;
 
 import com.tistory.eclipse4j.jpa.db1.entity.Company;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@SuppressWarnings("serial")
 @Builder
 @Data
-public class CompanyDto {
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+public class CompanyDto implements Serializable {
 
-    private Long id;
+
+	private Long id;
 
     private String name;
 
@@ -25,7 +33,7 @@ public class CompanyDto {
 
     private String streetAddress;
 
-    public static CompanyDto build(Company company) {
+    public static CompanyDto map(Company company) {
         if(Objects.isNull(company)){
             return CompanyDto.builder().build();
         }

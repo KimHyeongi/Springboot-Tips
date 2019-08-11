@@ -3,6 +3,7 @@ package com.tistory.eclipse4j.jpa.service;
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,10 +35,10 @@ public class CompanyFindService {
 		return companyRepository.findColumnById(id);
 	}
 
-	//@Cacheable(cacheNames = "Company", key = "#id")
+	@Cacheable(cacheNames = "Company", key = "#id")
 	public CompanyDto findCacheDataById(Long id) {
-		log.info("Cacheable 처리 => {}", id);
-		Company company = companyRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-		return CompanyDto.build(company);
+//		Company company = companyRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+		Company company = companyRepository.findById(id).orElse(new Company());
+		return CompanyDto.map(company);
 	}
 }

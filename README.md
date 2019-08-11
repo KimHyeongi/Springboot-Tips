@@ -15,26 +15,14 @@
 Mac :
 https://store.docker.com/editions/community/docker-ce-desktop-mac
 https://hub.docker.com/r/mysql/mysql-server/
-```ecma script level 4
-MYSQL_USER="githubstudy" \
-MYSQL_DATABASE="jpadb1" \
-MYSQL_CONTAINER_NAME="mysql" \
-MYSQL_ROOT_PASSWORD="githubstudy" \
-MYSQL_PASSWORD="githubstudy" 
 
-$ echo $MYSQL_USER
+docker-compose.yml 내 mysql 계정을 수정할 수 있다.
 
-docker \
-  run \
-  --detach \
-  --env MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} \
-  --env MYSQL_USER=${MYSQL_USER} \
-  --env MYSQL_PASSWORD=${MYSQL_PASSWORD} \
-  --env MYSQL_DATABASE=${MYSQL_DATABASE} \
-  --name ${MYSQL_CONTAINER_NAME} \
-  --publish 3306:3306 \
-  mysql:5.7
 ```
+$> docker-compose up -d
+```
+
+이후 root 계정으로 진행.
 
 
 

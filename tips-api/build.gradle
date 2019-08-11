@@ -1,10 +1,42 @@
 buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.asciidoctor:asciidoctor-gradle-plugin:1.5.7")
+    }
 }
 
 version = '0.0.1-SNAPSHOT'
 
+apply plugin: 'org.asciidoctor.convert'
+
+asciidoctor {
+	sourceDir 'src/main/asciidoc'
+	attributes \
+	  'snippets': file('target/snippets')
+}
+
 dependencies {
 	compile project(':tips-core')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	
+    compile('io.springfox:springfox-swagger2:2.9.2'){
+		exclude group: "com.google.guava", module: 'guava'
+	}
+    compile('io.springfox:springfox-swagger-ui:2.9.2'){
+		exclude group: "com.google.guava", module: 'guava'
+	}
+    compile('io.springfox:springfox-bean-validators:2.9.2'){
+		exclude group: "com.google.guava", module: 'guava'
+	}
+	
+	compile group: 'io.swagger.core.v3', name: 'swagger-models', version: '2.0.8'
+	compile group: 'io.swagger.core.v3', name: 'swagger-annotations', version: '2.0.8'
+	
+	
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+	testCompile("org.springframework.restdocs:spring-restdocs-mockmvc")
+	
 }
 

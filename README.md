@@ -5,6 +5,8 @@
 - Multiple Datasources 를 지원하도록 한다. jpadb1, jpadb2
 - 기존 단일 애플리케이션 빌드를 모듈로 분리시칸다. core, api
 - flyway 설정을 추가한다.
+- Swagger
+- RestDocs 
 - 실제 개발회사의 환경과 비슷하도록 유지 시킨다. (준비)
 - AWS 연동에 대한 처리도 할 수 있도록 한다. (준비)
 

@@ -45,6 +45,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-redis')
 	
 	
+	compile('com.google.guava:guava:28.0-jre')
+	
 	compile('org.hibernate:hibernate-ehcache')
 	compile('org.hibernate:hibernate-envers')
 	

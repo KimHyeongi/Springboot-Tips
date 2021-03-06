@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.7.RELEASE'
+        springBootVersion = '2.4.3'
     }
     repositories {
         mavenCentral()
@@ -13,10 +13,6 @@ buildscript {
 
 apply plugin: "org.sonarqube"
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.8'
-}
-
 subprojects {
     apply plugin: 'maven'
     apply plugin: 'java'
@@ -27,7 +23,7 @@ subprojects {
 
     group = 'com.tistory.eclipse4j'
     version = '0.0.1-SNAPSHOT'
-    sourceCompatibility = 1.8
+    sourceCompatibility = 11
 
     repositories {
         mavenLocal()
@@ -49,8 +45,17 @@ subprojects {
     }
 
     dependencies {
-        compile('org.projectlombok:lombok:1.18.6')
-        testCompile("org.springframework.boot:spring-boot-starter-test")
-        testCompile("org.mockito:mockito-core")
+
+        compile 'org.projectlombok:lombok:1.18.16'
+        annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+        testCompileOnly 'org.springframework.boot:spring-boot-starter-test'
+        testCompileOnly 'org.mockito:mockito-core'
+        testCompileOnly 'org.projectlombok:lombok:1.18.16'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+    }
+
+    test {
+        useJUnitPlatform()
     }
 }

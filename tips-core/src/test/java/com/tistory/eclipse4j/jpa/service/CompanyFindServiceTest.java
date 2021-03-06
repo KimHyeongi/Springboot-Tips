@@ -1,21 +1,19 @@
 package com.tistory.eclipse4j.jpa.service;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.tistory.eclipse4j.CoreApplication;
-import com.tistory.eclipse4j.jpa.test.ActiveProfileResolver;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RunWith(SpringRunner.class)
-@ActiveProfiles(inheritProfiles = false, resolver = ActiveProfileResolver.class)
 @SpringBootTest(classes = CoreApplication.class)
+@ExtendWith(SpringExtension.class)
+@ActiveProfiles(profiles = { "default"})
 public class CompanyFindServiceTest {
 
 	@Autowired

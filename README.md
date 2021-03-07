@@ -29,7 +29,7 @@ $> docker-compose up -d
 
 ## TransactionalEventListener 이벤트 리스너 등록.
 ```java
-CompanyCodeEventListener : 이벤트리스너 
+CompanyCodeEventListener : 이벤트리스너 ( 필요시 @Async 사용 )
 CompanyCodeUpdateEvent : 이벤트 ( GenericSpringEvent )
 CompanyCreateService.updateCompanyCodeById(..) : 이벤트발행
 ```        

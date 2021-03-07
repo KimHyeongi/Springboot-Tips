@@ -1,15 +1,16 @@
 # Springboot-Tips
 
 
+### Spring Boot 2.4.3.RELEASE
+- TransactionalEventListener Tip 추가
+
+
+
 ### Spring Boot 2.1.7.RELEASE
 - Multiple Datasources 를 지원하도록 한다. jpadb1, jpadb2
 - 기존 단일 애플리케이션 빌드를 모듈로 분리시칸다. core, api
 - flyway 설정을 추가한다.
-- Swagger
 - RestDocs 
-- 실제 개발회사의 환경과 비슷하도록 유지 시킨다. (준비)
-- AWS 연동에 대한 처리도 할 수 있도록 한다. (준비)
-
 
 
 
@@ -26,6 +27,12 @@ $> docker-compose up -d
 
 이후 root 계정으로 진행.
 
+## TransactionalEventListener 이벤트 리스너 등록.
+```java
+CompanyCodeEventListener : 이벤트리스너 
+CompanyCodeUpdateEvent : 이벤트 ( GenericSpringEvent )
+CompanyCreateService.updateCompanyCodeById(..) : 이벤트발행
+```        
 
 
 ## JPA Query new XXXX(args..)를 사용하여 조회. 

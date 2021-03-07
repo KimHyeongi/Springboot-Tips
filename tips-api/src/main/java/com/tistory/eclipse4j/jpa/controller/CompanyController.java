@@ -29,7 +29,7 @@ public class CompanyController {
 	@GetMapping(path = "/companies/{companyId}/update")
 	public HttpStatus update(@PathVariable("companyId") Long companyId,
 			@RequestParam("companyName") String companyName) {
-		companyCreateService.updateById(companyId, companyName);
+		companyCreateService.updateCompanyNameById(companyId, companyName);
 		return HttpStatus.OK;
 	}
 
@@ -39,7 +39,7 @@ public class CompanyController {
 		cacheReloadTestComplay.setCode("A00101");
 		cacheReloadTestComplay.setName("Grissom.Kim");
 		cacheReloadTestComplay.setStreetAddress("11 st.");
-		companyCreateService.save(cacheReloadTestComplay);
+		companyCreateService.newCompany(cacheReloadTestComplay);
 		return HttpStatus.CREATED;
 	}
 }

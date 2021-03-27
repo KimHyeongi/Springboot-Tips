@@ -11,6 +11,20 @@
 public class Employee extends AuditingEntity implements Serializable {
 ...
 }
+
+@MappedSuperclass
+public class AuditingEntity {
+    ...
+    
+    
+    @PreRemove
+    public void preDelete() {
+        setDeleted(true);
+    }
+}
+
+Test : EmployeeCreateServiceTest
+
 ```
 
 ### Spring Boot 2.4.3.RELEASE

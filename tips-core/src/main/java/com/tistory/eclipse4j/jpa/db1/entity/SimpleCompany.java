@@ -1,13 +1,14 @@
 package com.tistory.eclipse4j.jpa.db1.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+import java.io.Serializable;
+
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SimpleCompany {
+public class SimpleCompany implements Serializable {
 
     private String name;
 

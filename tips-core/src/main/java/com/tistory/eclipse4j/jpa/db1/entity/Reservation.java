@@ -11,16 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-
 @SuppressWarnings("serial")
-@Data
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = false)
 @Builder
 @Entity

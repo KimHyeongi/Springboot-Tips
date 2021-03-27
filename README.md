@@ -1,10 +1,20 @@
 # Springboot-Tips
 
+### Spring Boot 
+- SQLDelete Tip 추가 ( Soft Delete )
+```java
+
+@SQLDelete(
+        sql = "update employee set deleted = true where id = ?", 
+        check = ResultCheckStyle.COUNT
+)
+public class Employee extends AuditingEntity implements Serializable {
+...
+}
+```
 
 ### Spring Boot 2.4.3.RELEASE
 - TransactionalEventListener Tip 추가
-
-
 
 ### Spring Boot 2.1.7.RELEASE
 - Multiple Datasources 를 지원하도록 한다. jpadb1, jpadb2

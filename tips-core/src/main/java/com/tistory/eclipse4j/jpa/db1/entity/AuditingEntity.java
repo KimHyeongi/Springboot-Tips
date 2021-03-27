@@ -2,10 +2,7 @@ package com.tistory.eclipse4j.jpa.db1.entity;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
+import javax.persistence.*;
 
 import org.hibernate.envers.Audited;
 import org.springframework.data.annotation.CreatedBy;
@@ -22,6 +19,9 @@ import lombok.Setter;
 public class AuditingEntity {
 
 	private static final String SYSTEM_USER = "SYSTEM";
+
+	@Column(name = "deleted", nullable = false)
+	private boolean deleted = false;
 
 	@CreatedBy
 	@Column(name = "createdBy", nullable = false, length = 50)
@@ -48,5 +48,10 @@ public class AuditingEntity {
 	@PreUpdate
 	public void preUpdate() {
 		this.modifiedBy = SYSTEM_USER;
+	}
+
+	@PreRemove
+	public void preDelete() {
+		setDeleted(true);
 	}
 }

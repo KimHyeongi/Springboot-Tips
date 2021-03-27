@@ -5,16 +5,11 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import lombok.*;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.NotAudited;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 @SuppressWarnings("serial")
 @SqlResultSetMappings({
@@ -25,7 +20,8 @@ import lombok.NoArgsConstructor;
                                 @ColumnResult(name = "name", type = String.class)
                         }))
 })
-@Data
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = false)
 @Builder
 @Entity

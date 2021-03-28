@@ -8,8 +8,10 @@ import com.tistory.eclipse4j.jpa.db1.entity.Company;
 import com.tistory.eclipse4j.jpa.db1.repository.CompanyRepository;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class CompanySecondCacheableFindService {
 

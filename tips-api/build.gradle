@@ -13,8 +13,10 @@ apply plugin: 'org.asciidoctor.convert'
 
 asciidoctor {
 	sourceDir 'src/main/asciidoc'
-	attributes \
-	  'snippets': file('target/snippets')
+	attributes 'snippets' : file('target/snippets')
+}
+ext {
+	set('springCloudVersion', "2020.0.2")
 }
 
 dependencies {
@@ -35,3 +37,8 @@ dependencies {
 
 }
 
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}

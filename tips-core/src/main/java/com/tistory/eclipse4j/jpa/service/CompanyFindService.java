@@ -2,6 +2,8 @@ package com.tistory.eclipse4j.jpa.service;
 
 import javax.persistence.EntityNotFoundException;
 
+import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.XSlf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +15,7 @@ import com.tistory.eclipse4j.jpa.db1.repository.CompanyRepository;
 
 import lombok.RequiredArgsConstructor;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -36,10 +39,12 @@ public class CompanyFindService {
 
 	@HystrixCommand(fallbackMethod = "findSecondCacheableDtoById")
 	public CompanyDto findCacheableDtoById(Long id) {
+		log.info("Redis Cache 호출하기");
 		return companyCacheableFindService.findCacheDataById(id);
 	}
 
 	public CompanyDto findSecondCacheableDtoById(Long id) {
+		log.info("Caffeine Cache 호출하기");
 		return companySecondCacheableFindService.findCaffeineCacheDataById(id);
 	}
 }

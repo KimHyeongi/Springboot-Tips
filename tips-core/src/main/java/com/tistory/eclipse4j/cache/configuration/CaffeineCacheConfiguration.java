@@ -19,7 +19,7 @@ public class CaffeineCacheConfiguration {
      */
     @Bean
     public CacheManager caffeineCacheManager() {
-        CaffeineCacheManager cacheManager = new CaffeineCacheManager("cachenames");
+        CaffeineCacheManager cacheManager = new CaffeineCacheManager("cached_redis_caffeine_company_id");
         cacheManager.setCaffeine(Caffeine.newBuilder()
                 .initialCapacity(100)
                 .maximumSize(500)

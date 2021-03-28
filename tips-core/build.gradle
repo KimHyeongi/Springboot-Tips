@@ -15,11 +15,16 @@ jar {
     enabled = true
 }
 
+ext {
+	set('springCloudVersion', "2020.0.2")
+}
+
 sourceSets.main.java.srcDirs += generatedSourcesDir
 dependencies {
 
 	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
 	compile 'org.springframework.boot:spring-boot-starter-data-redis'
+	compile 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.2.7.RELEASE'
 	compile 'com.google.guava:guava:30.1-jre'
 	compile 'org.hibernate:hibernate-ehcache'
 	compile 'org.hibernate:hibernate-envers'
@@ -30,8 +35,7 @@ dependencies {
 	compile 'com.querydsl:querydsl-jpa:4.4.0'
 	compile 'org.apache.commons:commons-lang3:3.12.0'
 	compile 'org.apache.commons:commons-pool2:2.9.0'
-	compile group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: '3.0.1'
-	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.7.RELEASE'
+	compile 'com.github.ben-manes.caffeine:caffeine:3.0.1'
 
 
 	runtime 'mysql:mysql-connector-java'
@@ -50,6 +54,13 @@ dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
 	testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.5.1'
 }
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
 
 querydsl {
 	library = "com.querydsl:querydsl-apt"

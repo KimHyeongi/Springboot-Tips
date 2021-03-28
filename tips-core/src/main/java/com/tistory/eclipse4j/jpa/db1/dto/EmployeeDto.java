@@ -1,15 +1,18 @@
 package com.tistory.eclipse4j.jpa.db1.dto;
 
+import java.io.Serializable;
 import java.util.function.Function;
 
 import com.tistory.eclipse4j.jpa.db1.entity.Employee;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 
+@SuppressWarnings("serial")
 @Builder
-@Data
-public class EmployeeDto {
+@Getter
+public class EmployeeDto implements Serializable {
 
     private Long id;
 

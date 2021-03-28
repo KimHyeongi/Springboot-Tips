@@ -1,7 +1,7 @@
 package com.tistory.eclipse4j.jpa.service;
 
 import javax.persistence.EntityNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,11 +9,13 @@ import com.tistory.eclipse4j.jpa.ThreadSleep;
 import com.tistory.eclipse4j.jpa.db1.entity.Reservation;
 import com.tistory.eclipse4j.jpa.db1.repository.ReservationRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class ReservationTxService {
 
-	@Autowired
-	private ReservationRepository reservationRepository;
+	private final ReservationRepository reservationRepository;
 
 	@Transactional(readOnly = false)
 	public Reservation findAndUpdate(Long id, Long productId, long ms) {

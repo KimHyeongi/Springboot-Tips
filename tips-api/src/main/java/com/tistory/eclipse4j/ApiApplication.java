@@ -8,7 +8,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @ServletComponentScan
 @SpringBootApplication
 public class ApiApplication extends SpringBootServletInitializer {
-        public static void main(String[] args) {
-                SpringApplication.run(ApiApplication.class, args);
-        }
+	public static void main(String[] args) {
+		SpringApplication.run(ApiApplication.class, args);
+	}
 }

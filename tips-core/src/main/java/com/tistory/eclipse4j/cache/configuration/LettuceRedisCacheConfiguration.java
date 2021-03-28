@@ -1,4 +1,4 @@
-package com.tistory.eclipse4j.jpa.configuration;
+package com.tistory.eclipse4j.cache.configuration;
 
 import java.time.Duration;
 

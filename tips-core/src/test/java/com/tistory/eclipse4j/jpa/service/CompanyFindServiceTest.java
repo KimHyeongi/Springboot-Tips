@@ -22,10 +22,10 @@ public class CompanyFindServiceTest {
 	@Test
 	public void test() {
 		log.debug("Find 1");
-		service.findCacheDataById(1L);
+		service.findCacheableDtoById(1L);
 		
 		log.debug("Find 2");
-		service.findCacheDataById(1L);
+		service.findCacheableDtoById(1L);
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.tistory.eclipse4j.jpa.configuration;
+package com.tistory.eclipse4j.cache.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

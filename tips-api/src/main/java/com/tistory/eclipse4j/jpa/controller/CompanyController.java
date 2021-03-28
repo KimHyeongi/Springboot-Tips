@@ -22,7 +22,7 @@ public class CompanyController {
 
 	@GetMapping(path = "/companies/{companyId}")
 	public CompanyDto find(@PathVariable("companyId") Long companyId) {
-		CompanyDto companyDto = companyFindService.findCacheDataById(companyId);
+		CompanyDto companyDto = companyFindService.findCacheableDtoById(companyId);
 		return companyDto;
 	}
 

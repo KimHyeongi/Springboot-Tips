@@ -13,6 +13,9 @@
 ```
 
 - SQLDelete Tip 추가 ( Soft Delete )
+  
+SQLDelete : 
+
 ```java
 
 @SQLDelete(

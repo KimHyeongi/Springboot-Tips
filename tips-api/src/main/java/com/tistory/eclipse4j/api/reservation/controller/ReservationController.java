@@ -1,4 +1,4 @@
-package com.tistory.eclipse4j.api.controller;
+package com.tistory.eclipse4j.api.reservation.controller;
 
 import com.tistory.eclipse4j.core.jpa.db1.entity.Reservation;
 import com.tistory.eclipse4j.core.jpa.service.ReservationTxService;

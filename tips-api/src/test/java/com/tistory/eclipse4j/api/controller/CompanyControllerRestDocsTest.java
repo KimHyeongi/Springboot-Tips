@@ -1,7 +1,7 @@
 package com.tistory.eclipse4j.api.controller;
 
+import com.tistory.eclipse4j.api.company.controller.CompanyController;
 import com.tistory.eclipse4j.api.restdocs.MockMvcDocBaseTest;
-import com.tistory.eclipse4j.core.jpa.db1.entity.Company;
 import com.tistory.eclipse4j.core.jpa.service.CompanyCreateService;
 import com.tistory.eclipse4j.core.jpa.service.CompanyFindService;
 import org.junit.jupiter.api.Test;
@@ -31,7 +31,7 @@ public class CompanyControllerRestDocsTest extends MockMvcDocBaseTest {
 
     @Test
     public void 회사() throws Exception {
-        when(companyFindService.findById(any())).thenReturn(Company.builder().build());
+//        when(companyFindService.findById(any())).thenReturn(Company.builder().build());
         this.mockMvc.perform(
                 RestDocumentationRequestBuilders.get("/companies/{companyId}", 1L)
                         .contentType(MediaType.APPLICATION_JSON)

@@ -1,8 +1,8 @@
-package com.tistory.eclipse4j.api.jpa.service;
+package com.tistory.eclipse4j.core.jpa.service;
 
-import com.tistory.eclipse4j.api.CoreApplication;
-import com.tistory.eclipse4j.api.jpa.db1.entity.Company;
-import com.tistory.eclipse4j.api.jpa.db1.entity.Employee;
+import com.tistory.eclipse4j.core.CoreApplication;
+import com.tistory.eclipse4j.core.jpa.db1.entity.Company;
+import com.tistory.eclipse4j.core.jpa.db1.entity.Employee;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

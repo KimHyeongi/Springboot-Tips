@@ -5,8 +5,8 @@ import com.tistory.eclipse4j.core.jpa.db1.entity.Company;
 import com.tistory.eclipse4j.core.jpa.service.CompanyCreateService;
 import com.tistory.eclipse4j.core.jpa.service.CompanyFindService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.restdocs.payload.JsonFieldType;
@@ -21,12 +21,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-//@WebMvcTest(CompanyController.class)
+@WebMvcTest(CompanyController.class)
 public class CompanyControllerRestDocsTest extends MockMvcDocBaseTest {
 
-    @Mock
+    @MockBean
     private CompanyFindService companyFindService;
-    @Mock
+    @MockBean
     private CompanyCreateService companyCreateService;
 
     @Test

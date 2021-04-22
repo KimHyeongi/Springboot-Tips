@@ -1,11 +1,11 @@
-package com.tistory.eclipse4j.api;
+package com.tistory.eclipse4j;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-@ServletComponentScan(basePackages = {"com.tistory.eclipse4j.api"})
+@ServletComponentScan(basePackages = {"com.tistory.eclipse4j"})
 @SpringBootApplication
 public class ApiApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {

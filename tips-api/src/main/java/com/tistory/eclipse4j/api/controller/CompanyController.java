@@ -11,16 +11,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 
+@RequiredArgsConstructor
 @RestController
 public class CompanyController {
 
-	private CompanyFindService companyFindService;
-	private CompanyCreateService companyCreateService;
-
-	public CompanyController(CompanyFindService findService, CompanyCreateService createService) {
-		this.companyFindService = findService;
-		this.companyCreateService = createService;
-	}
+	private final CompanyFindService companyFindService;
+	private final CompanyCreateService companyCreateService;
 
 	@GetMapping(path = "/companies/{companyId}")
 	public CompanyDto find(@PathVariable("companyId") Long companyId) {

@@ -2,7 +2,7 @@ package com.tistory.eclipse4j.api.company.service;
 
 import com.tistory.eclipse4j.api.company.data.CompanyInfo;
 import com.tistory.eclipse4j.core.jpa.db1.entity.Company;
-import com.tistory.eclipse4j.core.jpa.service.CompanyFindService;
+import com.tistory.eclipse4j.core.jpa.db1.service.CompanyFindService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

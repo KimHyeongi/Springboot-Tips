@@ -4,7 +4,6 @@ import com.tistory.eclipse4j.api.company.data.CompanyBody;
 import com.tistory.eclipse4j.api.company.data.CompanyInfo;
 import com.tistory.eclipse4j.api.company.service.CompanyFinder;
 import com.tistory.eclipse4j.api.response.ApiResponse;
-import com.tistory.eclipse4j.core.jpa.service.CompanyCreateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 public class CompanyController {
 
 	private final CompanyFinder companyFinder;
-	private final CompanyCreateService companyCreateService;
 
 	@GetMapping(path = "/companies/{companyId}")
 	public ApiResponse<CompanyInfo> find(@PathVariable("companyId") Long companyId) {

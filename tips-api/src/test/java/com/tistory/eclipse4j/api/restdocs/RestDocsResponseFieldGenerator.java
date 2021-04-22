@@ -20,8 +20,12 @@ import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWit
 public class RestDocsResponseFieldGenerator {
 	private static List<String> rootPath = Lists.newArrayList();
 	private static List<FieldDescriptor> descriptors = Lists.newArrayList();
-	
-	
+
+	private static List<FieldDescriptor> respnoseWraps = Lists.newArrayList(
+			fieldWithPath("code").type(JsonFieldType.STRING).description("응답코드"),
+			fieldWithPath("message").type(JsonFieldType.STRING).description("응답메시지"),
+			fieldWithPath("timestamp").type(JsonFieldType.NUMBER).description("서버 응답시간")
+	);
 	private static void addFieldWithPath(Class<?> clz){
 		Field[] filedArray = clz.getDeclaredFields();
 		List<Field> fields = Arrays.asList(filedArray);
@@ -63,6 +67,7 @@ public class RestDocsResponseFieldGenerator {
 	public static List<FieldDescriptor> make(Class<?> clz, String path) {
 		rootPath.add(path);
 		addFieldWithPath(clz);
-		return descriptors;
+		respnoseWraps.addAll(descriptors);
+		return respnoseWraps;
 	}
 }

@@ -1,4 +1,4 @@
-package com.tistory.eclipse4j.core.jpa.service.event;
+package com.tistory.eclipse4j.core.event;
 
 import lombok.Getter;
 

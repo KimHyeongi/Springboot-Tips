@@ -22,7 +22,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {"com.tistory.eclipse4j.jpa.db1"}, 
+@EnableJpaRepositories(basePackages = {"com.tistory.eclipse4j.core.jpa.db1"},
 	transactionManagerRef = "jpadb1TransactionManager",
 	entityManagerFactoryRef = "jpadb1EntityManagerFactory")
 public class JPATipDb1Configuration {
@@ -40,7 +40,7 @@ public class JPATipDb1Configuration {
 	@Bean(name = "jpadb1EntityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean jpadb1EntityManagerFactory(EntityManagerFactoryBuilder builder,
 		@Qualifier("jpadb1DataSource") DataSource jpadb1DataSource) {
-		return builder.dataSource(jpadb1DataSource).packages("com.tistory.eclipse4j.jpa.db1")
+		return builder.dataSource(jpadb1DataSource).packages("com.tistory.eclipse4j.core.jpa.db1")
 				.persistenceUnit("jpadb1").build();
 	}
 

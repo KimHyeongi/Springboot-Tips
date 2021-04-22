@@ -13,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 import com.google.common.base.Predicates;
 
+import org.springframework.web.servlet.resource.PathResourceResolver;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -65,6 +66,11 @@ public class ApiWebConfiguration extends WebMvcConfigurationSupport {
 	protected void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
 		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+		registry.addResourceHandler("/docs/**")
+				.addResourceLocations("classpath:/public/", "classpath:/static/", "classpath:/resources/", "classpath:/META-INF/resources/")
+				.resourceChain(true)
+				.addResolver(new PathResourceResolver());
 	}
+
 
 }

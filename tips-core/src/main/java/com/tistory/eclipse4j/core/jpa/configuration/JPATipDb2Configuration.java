@@ -21,7 +21,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {"com.tistory.eclipse4j.jpa.db2"}, 
+@EnableJpaRepositories(basePackages = {"com.tistory.eclipse4j.core.jpa.db2"},
 	transactionManagerRef = "jpadb2TransactionManager",
 	entityManagerFactoryRef = "jpadb2EntityManagerFactory")
 public class JPATipDb2Configuration {
@@ -37,7 +37,7 @@ public class JPATipDb2Configuration {
 	@Bean(name = "jpadb2EntityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean jpadb2EntityManagerFactory(EntityManagerFactoryBuilder builder,
 		@Qualifier("jpadb2DataSource") DataSource jpadb2DataSource) {
-		return builder.dataSource(jpadb2DataSource).packages("com.tistory.eclipse4j.jpa.db2")
+		return builder.dataSource(jpadb2DataSource).packages("com.tistory.eclipse4j.core.jpa.db2")
 				.persistenceUnit("jpadb2").build();
 	}
 

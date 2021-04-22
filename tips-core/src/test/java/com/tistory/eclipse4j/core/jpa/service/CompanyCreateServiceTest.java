@@ -1,9 +1,8 @@
 package com.tistory.eclipse4j.core.jpa.service;
 
 import com.tistory.eclipse4j.core.CoreApplication;
-import com.tistory.eclipse4j.core.jpa.db1.entity.Company;
+import com.tistory.eclipse4j.core.jpa.db1.service.CompanyCreateService;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,15 +22,5 @@ public class CompanyCreateServiceTest {
 	@Autowired
 	private CompanyCreateService service;
 
-	@Test
-	public void 회사명수정() {
-		service.updateCompanyNameById(1L, "name");
-	}
-
-	@Test
-	public void 회사코드수정() {
-		Company newCompany = service.create(Company.builder().name("Name").code("Code").build());
-		service.updateCompanyCodeById(newCompany.getId(), "코드");
-	}
 
 }

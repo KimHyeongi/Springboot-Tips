@@ -1,9 +1,9 @@
-package com.tistory.eclipse4j.core.jpa.service;
+package com.tistory.eclipse4j.core.jpa.db1.service;
 
 import javax.persistence.EntityNotFoundException;
 
 import com.tistory.eclipse4j.core.jpa.db1.entity.Company;
-import com.tistory.eclipse4j.core.jpa.service.event.CompanyCodeUpdateEvent;
+import com.tistory.eclipse4j.core.company.service.CompanyCodeUpdateEvent;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package com.tistory.eclipse4j.core.jpa.service;
+package com.tistory.eclipse4j.core.jpa.db1.service;
 
 import com.tistory.eclipse4j.core.jpa.db1.entity.Company;
 import com.tistory.eclipse4j.core.jpa.db1.repository.CompanyRepository;

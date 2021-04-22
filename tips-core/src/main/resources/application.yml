@@ -30,7 +30,7 @@ spring:
     hikari:
       jpadb1:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbcUrl: jdbc:mysql://localhost:3306/spring-tips-db1?useUnicode=true&characterEncoding=utf8&useSSL=false
+        jdbcUrl: jdbc:mysql://127.0.0.1:3306/spring-tips-db1?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: githubstudy
         password: githubstudy
         minimum-idle: 2
@@ -41,7 +41,7 @@ spring:
         auto-commit: false
       jpadb2:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbcUrl: jdbc:mysql://localhost:3306/spring-tips-db2?useUnicode=true&characterEncoding=utf8&useSSL=false
+        jdbcUrl: jdbc:mysql://127.0.0.1:3306/spring-tips-db2?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: githubstudy
         password: githubstudy
         minimum-idle: 2

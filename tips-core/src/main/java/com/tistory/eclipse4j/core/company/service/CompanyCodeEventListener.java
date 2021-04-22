@@ -1,4 +1,4 @@
-package com.tistory.eclipse4j.core.jpa.service.event;
+package com.tistory.eclipse4j.core.company.service;
 
 import com.tistory.eclipse4j.core.jpa.db1.entity.Company;
 import lombok.extern.slf4j.Slf4j;

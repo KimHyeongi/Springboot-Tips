@@ -1,0 +1,24 @@
+ifndef::snippets[]
+:snippets: ../../../build/generated-snippets
+endif::[]
+:doctype: book
+:icons: font
+:source-highlighter: prettify
+:toc: left
+:toclevels: 2
+:sectlinks:
+:site-url: /build/asciidoc/html5/
+:stylesdir: css/
+:stylesheet: style.css
+
+= 회사정보
+
+=== Request :
+
+include::{snippets}/company-controller-rest-docs-test/회사/curl-request.adoc[]
+include::{snippets}/company-controller-rest-docs-test/회사/path-parameters.adoc[]
+
+=== Response :
+
+include::{snippets}/company-controller-rest-docs-test/회사/http-response.adoc[]
+include::{snippets}/company-controller-rest-docs-test/회사/response-fields.adoc[]

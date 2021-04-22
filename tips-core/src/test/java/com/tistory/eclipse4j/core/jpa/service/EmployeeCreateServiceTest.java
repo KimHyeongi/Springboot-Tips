@@ -1,12 +1,8 @@
 package com.tistory.eclipse4j.core.jpa.service;
 
 import com.tistory.eclipse4j.core.CoreApplication;
-import com.tistory.eclipse4j.core.jpa.db1.entity.Company;
-import com.tistory.eclipse4j.core.jpa.db1.entity.Employee;
+import com.tistory.eclipse4j.core.jpa.db1.service.EmployeeCreateService;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,18 +21,5 @@ public class EmployeeCreateServiceTest {
 
 	@Autowired
 	private EmployeeCreateService service;
-
-	@Test
-	@DisplayName("사원 삭제 Soft Delete")
-	public void 사원삭제() {
-		Employee persist = service.save(Employee.builder()
-				.company(Company.builder().id(1L).build())
-				.name("이름")
-				.build());
-
-		service.deleteById(persist.getId());
-
-		Assertions.assertTrue(persist.isDeleted());
-	}
 
 }

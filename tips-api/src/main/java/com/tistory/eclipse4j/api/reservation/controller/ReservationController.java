@@ -1,7 +1,7 @@
 package com.tistory.eclipse4j.api.reservation.controller;
 
 import com.tistory.eclipse4j.core.jpa.db1.entity.Reservation;
-import com.tistory.eclipse4j.core.jpa.service.ReservationTxService;
+import com.tistory.eclipse4j.core.jpa.db1.service.ReservationTxService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
